@@ -61,7 +61,7 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <button className=" w-full btn overflow-hidden bg-green-500 text-black py-3 rounded-xl font-bold">Register Now</button>
+          <button className=" w-full btn bg-green-500 text-black py-3 rounded-xl font-bold">Register Now</button>
         </div>
       </div>
     </nav>

@@ -1,21 +1,22 @@
-import React from 'react';
-import { ArrowRight, Sparkles, Leaf } from 'lucide-react';
+import React from "react";
+import { ArrowRight, Sparkles, Leaf } from "lucide-react";
 
 // Swiper modules
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 
 // Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-fade'; // For fade effect
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade"; // For fade effect
 
 const heroSlides = [
   {
     id: 1,
     titleHighlight: "Plastic-Free",
     titleRest: "Living Dashboard",
-    description: "Join the global movement to reduce plastic waste. Track your impact, earn badges, and compete with your local community.",
+    description:
+      "Join the global movement to reduce plastic waste. Track your impact, earn badges, and compete with your local community.",
     cta: "JOIN CHALLENGE",
     cardTitle: "Superstars Unite!",
     cardSubtitle: "Championing Sustainability",
@@ -24,7 +25,8 @@ const heroSlides = [
     id: 2,
     titleHighlight: "Carbon Footprint",
     titleRest: "Reduction Quest",
-    description: "Take on daily challenges to significantly cut your carbon emissions and foster a greener planet.",
+    description:
+      "Take on daily challenges to significantly cut your carbon emissions and foster a greener planet.",
     cta: "START REDUCING",
     cardTitle: "Eco Warriors",
     cardSubtitle: "Protecting Our Planet",
@@ -33,11 +35,12 @@ const heroSlides = [
     id: 3,
     titleHighlight: "Water Saving",
     titleRest: "Initiatives",
-    description: "Discover innovative ways to conserve water in your daily life and help preserve this vital resource.",
+    description:
+      "Discover innovative ways to conserve water in your daily life and help preserve this vital resource.",
     cta: "SAVE WATER NOW",
     cardTitle: "Hydration Heroes",
     cardSubtitle: "Every Drop Counts",
-  }
+  },
 ];
 
 const Hero = () => {
@@ -79,10 +82,10 @@ const Hero = () => {
                     {slide.description}
                   </p>
                   <div className="flex flex-wrap gap-4 pt-4">
-                    <button className="bg-green-500 hover:bg-green-400 text-black px-8 py-4 rounded-2xl font-black flex items-center gap-2 transition-all transform hover:scale-105 shadow-xl shadow-green-500/20">
+                    <button className="bg-green-500 hover:bg-green-400 text-black ml-2 px-8 py-4 rounded-2xl font-black flex items-center gap-2 transition-all transform hover:scale-105 shadow-xl shadow-green-500/20">
                       {slide.cta} <ArrowRight size={20} />
                     </button>
-                    <button className="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-4 rounded-2xl font-bold transition-all transform hover:scale-105">
+                    <button className="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 ml-2 py-4 rounded-2xl font-bold transition-all transform hover:scale-105">
                       View Leaderboard
                     </button>
                   </div>
@@ -97,16 +100,24 @@ const Hero = () => {
                         <Leaf size={32} className="text-green-500" />
                       </div>
                       <div className="text-right">
-                        <p className="text-green-500 font-black text-xl italic tracking-widest">ECO-TRACK</p>
-                        <p className="text-gray-500 text-[10px] uppercase">Sustainability Certified</p>
+                        <p className="text-green-500 font-black text-xl italic tracking-widest">
+                          ECO-TRACK
+                        </p>
+                        <p className="text-gray-500 text-[10px] uppercase">
+                          Sustainability Certified
+                        </p>
                       </div>
                     </div>
                     <div>
                       <h2 className="text-4xl font-black italic text-white uppercase leading-none">
                         {slide.cardTitle} <br />
-                        <span className="text-2xl text-gray-400">{slide.cardSubtitle}</span>
+                        <span className="text-2xl text-gray-400">
+                          {slide.cardSubtitle}
+                        </span>
                       </h2>
-                      <p className="text-gray-500 mt-2 text-sm italic">#EnvironmentFirst #Sustainability2026</p>
+                      <p className="text-gray-500 mt-2 text-sm italic">
+                        #EnvironmentFirst #Sustainability2026
+                      </p>
                     </div>
                   </div>
                 </div>
