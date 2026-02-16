@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: dark --default
+}
+
+*{
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-bg {
+  background: linear-gradient(-45deg, #121619, #1a1f23, #0e1113, #16201a);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
