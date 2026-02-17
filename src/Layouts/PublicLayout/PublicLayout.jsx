@@ -9,7 +9,7 @@ const PublicLayout = () => {
         <div className="font-sans">
             <Navbar />
             <div className="min-h-[calc(100vh-280px)]">
-               <Home></Home>
+               <Outlet></Outlet>
             </div>
             <Footer />
         </div>

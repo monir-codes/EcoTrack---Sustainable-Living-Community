@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Menu, X, Leaf } from 'lucide-react';
+import { AuthContext } from '../../Auth/AuthContext/AuthContext';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const {user} = useContext(AuthContext);
 
-  const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Business', href: '#' },
-    { name: 'Contact', href: '#' },
-  ];
 
   return (
     <nav className="sticky top-0 z-50 bg-[#121619]/90 backdrop-blur-md border-b border-gray-800">
@@ -27,18 +25,15 @@ const Navbar = () => {
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-10 text-sm font-medium">
-            {navLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                className="text-gray-400 hover:text-green-400 transition-colors duration-200"
-              >
-                {link.name}
-              </a>
-            ))}
-            <button className="bg-[#b4f481] hover:bg-[#a3e072] text-black px-6 py-2.5 rounded-full font-bold transition-all shadow-lg shadow-green-500/10">
+            <Link to={'/'} className="text-gray-400 hover:text-green-400 transition-colors duration-200">Home</Link>
+            <Link to={'/challenges'} className="text-gray-400 hover:text-green-400 transition-colors duration-200">Challenges</Link>
+
+          {
+            user && <Link to={'/myActivities'} className="text-gray-400 hover:text-green-400 transition-colors duration-200">My Activities</Link>
+          }
+            <Link to={'/register'} className="bg-[#b4f481] hover:bg-[#a3e072] text-black px-6 py-2.5 rounded-full font-bold transition-all shadow-lg shadow-green-500/10">
               Register
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -56,12 +51,12 @@ const Navbar = () => {
       {/* Mobile Menu (Animated) */}
       <div className={`md:hidden absolute w-full bg-[#1a1f23] border-b border-gray-800 transition-all duration-300 ${isOpen ? 'max-h-64 opacity-100 py-6' : 'max-h-0 opacity-0 overflow-hidden'}`}>
         <div className="flex flex-col items-center space-y-4 px-4">
-          {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="text-lg text-gray-300 hover:text-green-500">
-              {link.name}
-            </a>
-          ))}
-          <button className=" w-full btn bg-green-500 text-black py-3 rounded-xl font-bold">Register Now</button>
+            <Link to={'/'} className="text-gray-300 hover:text-green-500 transition-colors duration-200">Home</Link>
+            <Link to={'/challenges'} className="text-gray-300 hover:text-green-500 transition-colors duration-200">Challenges</Link>
+          {
+            user && <Link to={'/myActivities'} className="text-gray-300 hover:text-green-500 transition-colors duration-200">My Activities</Link>
+          }
+          <Link to={'/register'} className=" w-full btn bg-green-500 text-black py-3 rounded-xl font-bold">Register Now</Link>
         </div>
       </div>
     </nav>
