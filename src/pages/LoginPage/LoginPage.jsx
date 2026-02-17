@@ -1,14 +1,18 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Mail, Lock, LogIn, Loader2 } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../../Auth/AuthContext/AuthContext";
 
 const LoginPage = () => {
+
+  const {signInWithGoogle, setUser} = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -34,6 +38,15 @@ const LoginPage = () => {
   const handleGoogleLogin = () => {
     toast.loading("Redirecting to Google...", { duration: 2000 });
     // Google Auth Logic Here
+
+    signInWithGoogle().then((res=>{
+      setUser(res)
+      navigate(location.pathname.state? location.pathname.state : '/')
+      toast.success('Google SignIn Success')
+    })).catch((err)=>{
+      console.log(err)
+    })
+
   };
 
   return (

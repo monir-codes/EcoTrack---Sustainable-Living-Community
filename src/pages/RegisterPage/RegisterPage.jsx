@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { User, Mail, Lock, Image as ImageIcon, Loader2, UserPlus, CheckCircle2, XCircle } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from '../../Auth/AuthContext/AuthContext';
 
 
 const RegisterPage = () => {
@@ -13,9 +14,14 @@ const RegisterPage = () => {
     password: ''
   });
   
+
+  const {signInWithGoogle, setUser} = useContext(AuthContext)
   const [isLoading, setIsLoading] = useState(false);
   const [passwordErrors, setPasswordErrors] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation()
+
+  console.log(location)
 
   
   const validatePassword = (pass) => {
@@ -53,6 +59,20 @@ const RegisterPage = () => {
       setIsLoading(false);
     }
   };
+
+
+  // Google SignIn 
+    const handleGoogleSignIn = ()=>{
+      signInWithGoogle()
+      .then((result)=>{
+        setUser(result)
+        navigate(location.pathname.state? location.pathname.state : '/')
+        toast.success('Google SignIn Success')
+
+      }).catch((err)=>{
+        console.log(err)
+      })
+    }
 
   return (
     <div className="min-h-screen bg-[#121619] flex items-center justify-center px-6 py-12">
@@ -150,8 +170,9 @@ const RegisterPage = () => {
             </div>
 
             <button
+              onClick={handleGoogleSignIn}
               type="button"
-              className="w-full flex justify-center items-center gap-3 py-4 bg-white/5 border border-white/10 rounded-2xl text-white text-xs font-black uppercase tracking-widest hover:bg-white/10 transition-all"
+              className="btn w-full flex justify-center items-center gap-3 py-4 bg-white/5 border border-white/10 rounded-2xl text-white text-xs font-black uppercase tracking-widest hover:bg-white/10 transition-all"
             >
              <FcGoogle size={20} />
               Register with Google

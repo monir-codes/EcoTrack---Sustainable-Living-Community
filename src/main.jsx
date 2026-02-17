@@ -9,6 +9,7 @@ import PublicLayout from './Layouts/PublicLayout/PublicLayout';
 import Home from './pages/Home/Home';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         Component: LoginPage,
+      },
+      {
+        path:'/forgot-password',
+        Component: ForgotPassword,
       },
     ]
   },
