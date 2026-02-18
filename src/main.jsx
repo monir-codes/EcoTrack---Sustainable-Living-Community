@@ -10,6 +10,12 @@ import Home from './pages/Home/Home';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
+import Challenges from './Components/Challenges/Challenges';
+import ChallengeDetails from './Components/ChallengeDetails/ChallengeDetails';
+import AddChallenge from './Components/AddChallenge/AddChallenge';
+import MyActivities from './Components/MyActivities/MyActivities';
+import NotFound from './pages/NotFoundPage/NotFound';
+import ActivityDetails from './Components/ActivityDetails/ActivityDetails';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +38,30 @@ const router = createBrowserRouter([
         path:'/forgot-password',
         Component: ForgotPassword,
       },
+      {
+        path: '/challenges',
+        Component: Challenges
+      },
+      {
+        path: `/challenges/:id`,
+        Component: ChallengeDetails
+      },
+      {
+        path: '/challenges/add',
+        element: <AddChallenge></AddChallenge>
+      },
+      {
+        path: '/my-activities',
+        Component: MyActivities
+      },
+      {
+        path: '/my-activities/:id',
+        element: <ActivityDetails></ActivityDetails>
+      },
+      {
+        path: '*',
+        Component: NotFound
+      }
     ]
   },
 ]);
