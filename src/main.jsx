@@ -16,6 +16,7 @@ import AddChallenge from './Components/AddChallenge/AddChallenge';
 import MyActivities from './Components/MyActivities/MyActivities';
 import NotFound from './pages/NotFoundPage/NotFound';
 import ActivityDetails from './Components/ActivityDetails/ActivityDetails';
+import Profile from './Components/MyProfile/Profile';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: '/challenges/add',
         element: <AddChallenge></AddChallenge>
+      },
+      {
+        path:'/profile',
+        Component: Profile,
       },
       {
         path: '/my-activities',
