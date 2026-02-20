@@ -4,6 +4,7 @@ import {
   Calendar, Users, Trophy, Target, 
   ArrowLeft, Share2, Info, Clock, ShieldCheck, Loader2 
 } from "lucide-react";
+import Loader from "../Loader/Loader";
 
 const ChallengeDetails = () => {
   const { id } = useParams(); // URL থেকে আইডি ধরছে
@@ -66,11 +67,8 @@ const ChallengeDetails = () => {
   }, [id]);
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-[#121619] flex items-center justify-center">
-        <Loader2 className="animate-spin text-green-500" size={48} />
-      </div>
-    );
+    return <Loader></Loader>
+    
   }
 
   if (!challenge) {
@@ -176,7 +174,7 @@ const ChallengeDetails = () => {
                 </div>
                 <p className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] mb-8">Active Participants</p>
                 
-                <Link to={'/challenges/add'} className="w-full bg-green-500 hover:bg-green-400 text-black py-5 rounded-2xl font-black uppercase tracking-widest text-xs shadow-2xl shadow-green-500/20 transition-all transform hover:-translate-y-1 active:scale-95 mb-6">
+                <Link to={'/challenges/add'} className="w-full btn bg-green-500 hover:bg-green-400 text-black py-5 rounded-2xl font-black uppercase tracking-widest text-xs shadow-2xl shadow-green-500/20 transition-all transform hover:-translate-y-1 active:scale-95 mb-6">
                   Join Challenge Now
                 </Link>
                 

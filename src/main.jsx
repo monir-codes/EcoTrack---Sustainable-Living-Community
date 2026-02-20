@@ -17,11 +17,14 @@ import MyActivities from './Components/MyActivities/MyActivities';
 import NotFound from './pages/NotFoundPage/NotFound';
 import ActivityDetails from './Components/ActivityDetails/ActivityDetails';
 import Profile from './Components/MyProfile/Profile';
+import DashboardLayout from './Layouts/Dashboardlayout/DashboardLayout';
+import Loader from './Components/Loader/Loader';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <PublicLayout></PublicLayout>,
+    hydrateFallbackElement: <Loader></Loader>,
     children: [
       {
         index: true,
@@ -45,23 +48,23 @@ const router = createBrowserRouter([
       },
       {
         path: `/challenges/:id`,
-        Component: ChallengeDetails
+        element: <DashboardLayout><ChallengeDetails></ChallengeDetails></DashboardLayout>
       },
       {
         path: '/challenges/add',
-        element: <AddChallenge></AddChallenge>
+        element: <DashboardLayout><AddChallenge></AddChallenge></DashboardLayout>
       },
       {
         path:'/profile',
-        Component: Profile,
+        element: <DashboardLayout><Profile></Profile></DashboardLayout>
       },
       {
         path: '/my-activities',
-        Component: MyActivities
+        element: <DashboardLayout><MyActivities></MyActivities></DashboardLayout>
       },
       {
         path: '/my-activities/:id',
-        element: <ActivityDetails></ActivityDetails>
+        element: <DashboardLayout><ActivityDetails></ActivityDetails></DashboardLayout>
       },
       {
         path: '*',
