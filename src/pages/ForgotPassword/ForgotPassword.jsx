@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Mail, ArrowLeft, Loader2, Send } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../Auth/AuthContext/AuthContext';
@@ -8,6 +8,14 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { resetPassword } = useContext(AuthContext);
+  const location = useLocation();
+
+
+  useEffect(()=>{
+    if(location?.state?.email){
+      setEmail(location.state.email)
+    }
+  },[location.state])
 
   const handleReset = async (e) => {
     e.preventDefault();
@@ -56,6 +64,7 @@ const ForgotPassword = () => {
               placeholder="Enter your registered email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              
             />
           </div>
 

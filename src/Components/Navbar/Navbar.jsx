@@ -48,6 +48,20 @@ const Navbar = () => {
             >
               Challenges
             </NavLink>
+            {
+              !user &&
+               <NavLink
+              to="/my-activities"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-green-400 font-bold"
+                  : "text-gray-400 hover:text-green-400 transition-colors"
+              }
+            >
+              My Activities
+            </NavLink>
+              
+            }
 
             {/* User Profile Dropdown (Desktop) */}
             <div className="flex items-center gap-4 border-l border-gray-800 pl-8">
@@ -164,6 +178,13 @@ const Navbar = () => {
             className="text-gray-300 py-2 border-b border-white/5"
           >
             Challenges
+          </Link>
+          <Link
+            to="/my-activities"
+            onClick={() => setIsOpen(false)}
+            className="text-gray-300 py-2 border-b border-white/5"
+          >
+            My Activities
           </Link>
 
           {user ? (

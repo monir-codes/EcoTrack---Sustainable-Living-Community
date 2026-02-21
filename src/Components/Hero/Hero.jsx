@@ -9,6 +9,7 @@ import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade"; // For fade effect
+import { Link } from "react-router-dom";
 
 const heroSlides = [
   {
@@ -82,9 +83,9 @@ const Hero = () => {
                     {slide.description}
                   </p>
                   <div className="flex flex-wrap gap-4 pt-4">
-                    <button className="bg-green-500 hover:bg-green-400 text-black ml-2 px-8 py-4 rounded-2xl font-black flex items-center gap-2 transition-all transform hover:scale-105 shadow-xl shadow-green-500/20">
+                    <Link to={`/challenges`} className="bg-green-500 hover:bg-green-400 text-black ml-2 px-8 py-4 rounded-2xl font-black flex items-center gap-2 transition-all transform hover:scale-105 shadow-xl shadow-green-500/20">
                       {slide.cta} <ArrowRight size={20} />
-                    </button>
+                    </Link>
                     <button className="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 ml-2 py-4 rounded-2xl font-bold transition-all transform hover:scale-105">
                       View Leaderboard
                     </button>

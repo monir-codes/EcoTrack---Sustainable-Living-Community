@@ -7,9 +7,11 @@ import {
   Trash2,
   ExternalLink,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const MyActivities = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   // ডেমো ডাটা (পরবর্তীতে API থেকে আসবে)
   const activities = [
@@ -38,6 +40,11 @@ const MyActivities = () => {
       impact: "+20 Eco Points",
     },
   ];
+
+
+  const navigateActivitiesDetails = (id)=>{
+    return navigate(`/my-activities/${id}`)
+  }
 
   return (
     <div className="min-h-screen bg-[#121619] py-12 px-6">
@@ -92,8 +99,9 @@ const MyActivities = () => {
               <tbody className="divide-y divide-white/5">
                 {activities.map((item) => (
                   <tr
+                    onClick={()=> navigateActivitiesDetails(item.id)}
                     key={item.id}
-                    className="group hover:bg-white/[0.01] transition-colors"
+                    className="group hover:bg-white/[0.01] transition-colors cursor-pointer"
                   >
                     <td className="p-6">
                       <div className="flex items-center gap-4">
