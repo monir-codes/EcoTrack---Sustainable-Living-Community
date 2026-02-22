@@ -57,7 +57,7 @@ const Hero = () => {
           effect="fade"
           fadeEffect={{ crossFade: true }}
           autoplay={{
-            delay: 3000,
+            delay: 4000,
             disableOnInteraction: false,
           }}
           loop={true}
@@ -86,9 +86,9 @@ const Hero = () => {
                     <Link to={`/challenges`} className="bg-green-500 hover:bg-green-400 text-black ml-2 px-8 py-4 rounded-2xl font-black flex items-center gap-2 transition-all transform hover:scale-105 shadow-xl shadow-green-500/20">
                       {slide.cta} <ArrowRight size={20} />
                     </Link>
-                    <button className="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 ml-2 py-4 rounded-2xl font-bold transition-all transform hover:scale-105">
+                    <Link to={'/leaderboard'} className="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 ml-2 py-4 rounded-2xl font-bold transition-all transform hover:scale-105">
                       View Leaderboard
-                    </button>
+                    </Link>
                   </div>
                 </div>
 

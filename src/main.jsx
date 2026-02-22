@@ -19,6 +19,7 @@ import ActivityDetails from './Components/ActivityDetails/ActivityDetails';
 import Profile from './Components/MyProfile/Profile';
 import DashboardLayout from './Layouts/Dashboardlayout/DashboardLayout';
 import Loader from './Components/Loader/Loader';
+import Leaderboard from './Components/LeaderBoard/Leaderboard';
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: '/my-activities/:id',
         element: <DashboardLayout><ActivityDetails></ActivityDetails></DashboardLayout>
+      },
+      {
+        path: '/leaderboard',
+        element: <DashboardLayout><Leaderboard></Leaderboard></DashboardLayout>
       },
       {
         path: '*',

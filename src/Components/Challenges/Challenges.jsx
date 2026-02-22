@@ -151,7 +151,7 @@ const Challenges = () => {
                 </div>
 
                 {/* Join Button */}
-                <button className="w-full bg-white text-black py-4 rounded-2xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 group-hover:bg-green-500 transition-all duration-300">
+                <button className="w-full bg-white text-black py-4 rounded-2xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 group-hover:bg-green-500 transition-all duration-300 cursor-pointer">
                   Join Challenge <ArrowRight size={16} />
                 </button>
               </div>
