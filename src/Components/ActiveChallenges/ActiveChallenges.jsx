@@ -1,65 +1,31 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Target, ArrowRight, Activity, CheckCircle2, Clock } from 'lucide-react';
+import { AuthContext } from '../../Auth/AuthContext/AuthContext';
+import Loader from '../Loader/Loader';
+import { Link } from 'react-router-dom';
 
-const ActiveChallenges = ({ userChallenges }) => {
-  // আপনার দেওয়া ডাটা স্ট্রাকচার অনুযায়ী ম্যাপ করা (যদি প্রপস না থাকে তবে ডামি ডাটা)
-  const challenges = userChallenges || [
-    {
-      _id: "c1",
-      title: "Plastic-Free July",
-      category: "Waste Reduction",
-      status: "Ongoing",
-      progress: 65,
-      metric: "5kg reduced/mo",
-      image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?q=80&w=400",
-    },
-    {
-      _id: "c2",
-      title: "Water Conservation",
-      category: "Resource Saving",
-      status: "Ongoing",
-      progress: 40,
-      metric: "120L saved/wk",
-      image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=500",
-    },
-    {
-      _id: "c3",
-      title: "Meal-less Mondays",
-      category: "Carbon Merits",
-      status: "Finished",
-      progress: 100,
-      metric: "2kg CO2 saved",
-      image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400",
-    },
-    {
-      _id: "c4",
-      title: "Cycle to Work",
-      category: "Eco-Transport",
-      status: "Ongoing",
-      progress: 25,
-      metric: "50km traveled/wk",
-      image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=400",
-    },
-    {
-      _id: "c5",
-      title: "Composting Hero",
-      category: "Recycling",
-      status: "Not Started",
-      progress: 0,
-      metric: "10kg organic waste",
-      image: "https://picsum.photos/id/14/500/400",
-    },
-    {
-      _id: "c6",
-      title: "Solar Transition",
-      category: "Home Energy",
-      status: "Ongoing",
-      progress: 80,
-      metric: "15kWh generated",
-      image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=400",
-    }
-  ];
+const ActiveChallenges = () => {
+  const { loading, setLoading } = useContext(AuthContext);
+  const [challenges, setChallenges] = useState([]);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch("http://localhost:3000/api/active-challenges")
+      .then(res => res.json())
+      .then(data => {
+        setChallenges(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, [setLoading]);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   const getStatusIcon = (status) => {
     switch (status) {
@@ -71,12 +37,12 @@ const ActiveChallenges = ({ userChallenges }) => {
 
   return (
     <section className="max-w-7xl mx-auto px-4 md:px-6 py-16">
-      {/* Header */}
+      {/* Header Section */}
       <motion.div 
         initial={{ opacity: 0, y: -10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
-        className="flex justify-between items-end mb-12"
+        className="flex justify-between items-end mb-12 gap-4"
       >
         <div className="space-y-2">
           <div className="flex items-center gap-2">
@@ -89,16 +55,22 @@ const ActiveChallenges = ({ userChallenges }) => {
           <div className="h-1 w-16 bg-green-500 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
         </div>
         
-        <motion.button 
-          whileHover={{ x: 5 }}
-          className="group hidden sm:flex items-center gap-2 text-gray-400 hover:text-green-500 transition-all text-[10px] font-black uppercase tracking-widest"
-        >
-          View Dashboard <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-        </motion.button>
+        {/* Mobile-Fixed View Dashboard Link */}
+        <Link to="/user-dashboard">
+          <motion.button 
+            whileHover={{ x: 5 }}
+            whileTap={{ scale: 0.95 }}
+            className="group flex items-center gap-2 text-gray-400 hover:text-green-500 transition-all text-[10px] font-black uppercase tracking-widest whitespace-nowrap"
+          >
+            <span className="hidden xs:inline">View Dashboard</span>
+            <span className="xs:hidden">Dashboard</span> 
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          </motion.button>
+        </Link>
       </motion.div>
 
-      {/* Grid - Fully Responsive */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+      {/* Grid Layout - Optimized for all screens */}
+      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
         {challenges.map((item, index) => (
           <motion.div 
             key={item._id} 
@@ -152,7 +124,7 @@ const ActiveChallenges = ({ userChallenges }) => {
               
               <div className="flex justify-between items-center bg-white/5 p-2 rounded-xl">
                 <Target size={12} className="text-green-500 opacity-50" />
-                <span className="text-white font-black text-[9px] tracking-tighter italic">
+                <span className="text-white font-black text-[9px] tracking-tighter italic truncate ml-2">
                   {item.metric}
                 </span>
               </div>

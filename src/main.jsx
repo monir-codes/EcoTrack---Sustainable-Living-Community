@@ -20,6 +20,7 @@ import Profile from './Components/MyProfile/Profile';
 import DashboardLayout from './Layouts/Dashboardlayout/DashboardLayout';
 import Loader from './Components/Loader/Loader';
 import Leaderboard from './Components/LeaderBoard/Leaderboard';
+import UserDashboard from './Components/UserDashboard/UserDashboard';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: `/challenges/:id`,
         element: <DashboardLayout><ChallengeDetails></ChallengeDetails></DashboardLayout>
+      },
+      {
+        path: '/user-dashboard',
+        element: <DashboardLayout><UserDashboard></UserDashboard></DashboardLayout>
       },
       {
         path: '/challenges/add',

@@ -1,53 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Leaf, Users, Calendar, ArrowRight, Filter, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Auth/AuthContext/AuthContext';
+import Loader from '../Loader/Loader';
 
 const Challenges = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // আপনার দেওয়া ডাটা স্ট্রাকচার অনুযায়ী ডেমো ডাটা
-  const allChallenges = [
-    {
-      _id: "1",
-      title: "Plastic-Free July",
-      category: "Waste Reduction",
-      description: "Avoid single-use plastic for one month and embrace reusable alternatives.",
-      duration: 30,
-      target: "Reduce plastic waste",
-      participants: 1240,
-      impactMetric: "kg plastic saved",
-      startDate: "2024-07-01",
-      endDate: "2024-07-31",
-      imageUrl: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?q=80&w=400"
-    },
-    {
-      _id: "2",
-      title: "Public Transport Week",
-      category: "Sustainable Transport",
-      description: "Ditch your car and use buses, trains or bicycles for your daily commute.",
-      duration: 7,
-      target: "Reduce carbon footprint",
-      participants: 850,
-      impactMetric: "CO2 emissions reduced",
-      startDate: "2024-08-10",
-      endDate: "2024-08-17",
-      imageUrl: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800"
-    },
-    {
-      _id: "3",
-      title: "5-Minute Shower",
-      category: "Water Conservation",
-      description: "Save water by limiting your shower time to just five minutes every day.",
-      duration: 15,
-      target: "Conserve water",
-      participants: 3200,
-      impactMetric: "Liters of water saved",
-      startDate: "2024-09-01",
-      endDate: "2024-09-15",
-      imageUrl: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800"
-    }
-  ];
+
+  const {loading, setLoading} = useContext(AuthContext)
+  const [allChallenges, setAllChallenges] = useState([]);
+  
+  useEffect(()=>{
+    setLoading(true);
+    fetch("http://localhost:3000/api/challenges").then(res=> res.json()).then(data=> {
+      setAllChallenges(data)
+      setLoading(false);
+    })
+  },[])
+
+  if(loading){
+    return <Loader></Loader>
+  }
 
   const categories = ["All", "Waste Reduction", "Energy Conservation", "Water Conservation", "Sustainable Transport", "Green Living"];
 

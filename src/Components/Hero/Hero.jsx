@@ -79,7 +79,7 @@ const Hero = () => {
                       {slide.titleRest}
                     </span>
                   </h1>
-                  <p className="text-gray-400 text-lg max-w-lg leading-relaxed animate-fade-in-up animation-delay-300">
+                  <p className="p-2 text-gray-400 text-lg max-w-lg leading-relaxed animate-fade-in-up animation-delay-300">
                     {slide.description}
                   </p>
                   <div className="flex flex-wrap gap-4 pt-4">
