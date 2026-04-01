@@ -22,34 +22,45 @@ const AddChallenge = () => {
       duration: parseInt(form.duration.value),
       target: form.target.value,
       participants: 0,
+      participantEmails: [],
       impactMetric: form.impactMetric.value,
-      createdBy: user?.email, // লগইন করা ইউজারের ইমেইল অটোমেটিক বসে যাবে
+      createdBy: user?.email, 
       startDate: form.startDate.value,
       endDate: form.endDate.value,
       imageUrl: form.imageUrl.value,
     };
 
-    console.log("New Challenge Data:", newChallenge);
+    try {
+      const response = await fetch('http://localhost:3000/api/challenges', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newChallenge),
+      });
 
-    // এখানে আপনার Firebase বা MongoDB তে ডাটা পাঠানোর লজিক হবে
-    setTimeout(() => {
-      toast.success("Challenge Created Successfully!");
+      const data = await response.json();
+
+      if (data.insertedId) {
+        toast.success("Challenge Created Successfully!", {
+          style: { background: '#1d2327', color: '#fff' }
+        });
+        form.reset();
+      }
+    } catch (error) {
+      toast.error("Failed to connect to server");
+    } finally {
       setLoading(false);
-      form.reset();
-    }, 1500);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-[#121619] py-16 px-6">
+    <div className="min-h-screen bg-[#121619] py-16 px-6 text-white">
       <Toaster position="top-center" />
       <div className="max-w-4xl mx-auto">
-        
-        {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex p-4 rounded-3xl bg-green-500/10 border border-green-500/20 mb-6 text-green-500">
             <PlusCircle size={40} />
           </div>
-          <h2 className="text-4xl font-black text-white uppercase italic tracking-tighter">
+          <h2 className="text-4xl font-black uppercase italic tracking-tighter">
             Create New <span className="text-green-500">Challenge</span>
           </h2>
           <p className="text-gray-500 font-bold uppercase text-[10px] tracking-[0.3em] mt-2">
@@ -58,24 +69,18 @@ const AddChallenge = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#1d2327] p-8 md:p-12 rounded-[3rem] border border-white/5 shadow-2xl">
-          
-          {/* Title */}
           <div className="space-y-2 md:col-span-2">
-            <label className="text-xs font-black uppercase text-gray-500 tracking-widest ml-1 flex items-center gap-2">
+            <label className="text-xs font-black uppercase text-gray-500 tracking-widest flex items-center gap-2">
               <Layout size={14}/> Challenge Title
             </label>
-            <input 
-              name="title" required type="text" placeholder="e.g., Plastic-Free July"
-              className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all font-medium"
-            />
+            <input name="title" required type="text" placeholder="e.g., Plastic-Free July" className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all" />
           </div>
 
-          {/* Category Dropdown */}
           <div className="space-y-2">
-            <label className="text-xs font-black uppercase text-gray-500 tracking-widest ml-1 flex items-center gap-2">
+            <label className="text-xs font-black uppercase text-gray-500 tracking-widest flex items-center gap-2">
               <PlusCircle size={14}/> Category
             </label>
-            <select name="category" required className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all font-medium appearance-none">
+            <select name="category" required className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all appearance-none">
               <option value="Waste Reduction">Waste Reduction</option>
               <option value="Energy Conservation">Energy Conservation</option>
               <option value="Water Conservation">Water Conservation</option>
@@ -84,75 +89,53 @@ const AddChallenge = () => {
             </select>
           </div>
 
-          {/* Image URL */}
           <div className="space-y-2">
-            <label className="text-xs font-black uppercase text-gray-500 tracking-widest ml-1 flex items-center gap-2">
+            <label className="text-xs font-black uppercase text-gray-500 tracking-widest flex items-center gap-2">
               <ImageIcon size={14}/> Image URL
             </label>
-            <input 
-              name="imageUrl" required type="url" placeholder="https://image-link.jpg"
-              className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all font-medium"
-            />
+            <input name="imageUrl" required type="url" placeholder="https://image-link.jpg" className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all" />
           </div>
 
-          {/* Description */}
           <div className="space-y-2 md:col-span-2">
-            <label className="text-xs font-black uppercase text-gray-500 tracking-widest ml-1 flex items-center gap-2">
+            <label className="text-xs font-black uppercase text-gray-500 tracking-widest flex items-center gap-2">
               <AlignLeft size={14}/> Description
             </label>
-            <textarea 
-              name="description" required rows="3" placeholder="Explain the challenge..."
-              className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all font-medium resize-none"
-            ></textarea>
+            <textarea name="description" required rows="3" placeholder="Explain the challenge..." className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all resize-none"></textarea>
           </div>
 
-          {/* Duration & Impact Metric */}
           <div className="space-y-2">
-            <label className="text-xs font-black uppercase text-gray-500 tracking-widest ml-1 flex items-center gap-2">
+            <label className="text-xs font-black uppercase text-gray-500 tracking-widest flex items-center gap-2">
               <Calendar size={14}/> Duration (Days)
             </label>
-            <input 
-              name="duration" required type="number" placeholder="30"
-              className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all font-medium"
-            />
+            <input name="duration" required type="number" placeholder="30" className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all" />
           </div>
+
           <div className="space-y-2">
-            <label className="text-xs font-black uppercase text-gray-500 tracking-widest ml-1 flex items-center gap-2">
+            <label className="text-xs font-black uppercase text-gray-500 tracking-widest flex items-center gap-2">
               <BarChart3 size={14}/> Impact Metric
             </label>
-            <input 
-              name="impactMetric" required type="text" placeholder="kg plastic saved"
-              className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all font-medium"
-            />
+            <input name="impactMetric" required type="text" placeholder="kg plastic saved" className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all" />
           </div>
 
-          {/* Start & End Date */}
           <div className="space-y-2">
             <label className="text-xs font-black uppercase text-gray-500 tracking-widest ml-1">Start Date</label>
-            <input name="startDate" required type="date" className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all font-medium inverted-scheme" />
+            <input name="startDate" required type="date" className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all" />
           </div>
+
           <div className="space-y-2">
             <label className="text-xs font-black uppercase text-gray-500 tracking-widest ml-1">End Date</label>
-            <input name="endDate" required type="date" className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all font-medium" />
+            <input name="endDate" required type="date" className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all" />
           </div>
 
-          {/* Target Goal */}
           <div className="space-y-2 md:col-span-2">
-            <label className="text-xs font-black uppercase text-gray-500 tracking-widest ml-1 flex items-center gap-2">
+            <label className="text-xs font-black uppercase text-gray-500 tracking-widest flex items-center gap-2">
               <Target size={14}/> Target Goal
             </label>
-            <input 
-              name="target" required type="text" placeholder="e.g., Reduce single-use plastic by 50%"
-              className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all font-medium"
-            />
+            <input name="target" required type="text" placeholder="e.g., Reduce single-use plastic by 50%" className="w-full bg-black/20 border border-white/5 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-green-500/50 transition-all" />
           </div>
 
-          {/* Submit Button */}
           <div className="md:col-span-2 pt-6">
-            <button 
-              disabled={loading}
-              className="w-full bg-green-500 hover:bg-green-400 text-black py-5 rounded-[2rem] font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all shadow-2xl shadow-green-500/20 active:scale-95 disabled:opacity-50"
-            >
+            <button disabled={loading} className="w-full bg-green-500 hover:bg-green-400 text-black py-5 rounded-[2rem] font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50">
               {loading ? <Loader2 className="animate-spin" size={20}/> : "Create Challenge"}
             </button>
           </div>

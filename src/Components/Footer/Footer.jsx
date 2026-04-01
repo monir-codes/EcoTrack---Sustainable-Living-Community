@@ -1,5 +1,6 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Github, Leaf, Mail } from 'lucide-react';
+// Twitter এর বদলে X ইম্পোর্ট করা হয়েছে
+import { Facebook, X, Instagram, Github, Leaf, Mail } from 'lucide-react'; 
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           
-          {/* Section 1: Brand (Same as Navbar) */}
+          {/* Section 1: Brand */}
           <div className="space-y-6">
             <div className="flex items-center gap-2 font-bold text-2xl">
               <div className="bg-green-500 p-1.5 rounded-lg">
@@ -33,7 +34,8 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold text-lg mb-6 underline decoration-green-500 underline-offset-8">Follow Us</h4>
             <div className="flex space-x-4">
-              {[Facebook, Twitter, Instagram, Github].map((Icon, idx) => (
+              {/* লিস্টে Twitter এর জায়গায় X ব্যবহার করা হয়েছে */}
+              {[Facebook, X, Instagram, Github].map((Icon, idx) => (
                 <a key={idx} href="#" className="w-11 h-11 flex items-center justify-center bg-white/5 rounded-xl text-gray-300 hover:bg-green-500 hover:text-black hover:-translate-y-1 transition-all duration-300">
                   <Icon size={22} />
                 </a>
