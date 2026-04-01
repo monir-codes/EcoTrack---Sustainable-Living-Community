@@ -32,7 +32,7 @@ const Profile = () => {
       });
 
       // 2. MongoDB Update (Replace with your Vercel URL when deploying)
-      const response = await fetch(`http://localhost:3000/api/users/${user.email}`, {
+      const response = await fetch(`https://eco-track-server-jade.vercel.app/api/users/${user.email}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

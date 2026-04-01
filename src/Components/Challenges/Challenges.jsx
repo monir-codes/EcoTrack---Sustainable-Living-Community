@@ -14,7 +14,7 @@ const Challenges = () => {
   
   useEffect(()=>{
     setLoading(true);
-    fetch("http://localhost:3000/api/challenges").then(res=> res.json()).then(data=> {
+    fetch("https://eco-track-server-jade.vercel.app/api/challenges").then(res=> res.json()).then(data=> {
       setAllChallenges(data)
       setLoading(false);
     })

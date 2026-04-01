@@ -22,7 +22,7 @@ const ChallengeDetails = () => {
       try {
         setLoading(true);
         // সরাসরি নির্দিষ্ট চ্যালেঞ্জ ফেচ করুন যদি আপনার ব্যাকএন্ডে GET /api/challenges/:id থাকে
-        const res = await fetch("http://localhost:3000/api/challenges");
+        const res = await fetch("https://eco-track-server-jade.vercel.app/api/challenges");
         const data = await res.json();
         const found = data.find((item) => item._id === id);
         
@@ -46,7 +46,7 @@ const ChallengeDetails = () => {
 
     setJoining(true);
     try {
-      const response = await fetch(`http://localhost:3000/api/challenges/join/${id}`, {
+      const response = await fetch(`https://eco-track-server-jade.vercel.app/api/challenges/join/${id}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: user.email })

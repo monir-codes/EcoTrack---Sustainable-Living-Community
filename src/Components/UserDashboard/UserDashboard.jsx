@@ -21,7 +21,7 @@ const UserDashboard = () => {
   const [activeChallenges, setActiveChallenges] = useState([]);
 
   useEffect(() => {
-    // এখানে আপনার API কল হবে: fetch(`http://localhost:3000/api/user-challenges/${user.email}`)
+    // এখানে আপনার API কল হবে: fetch(`https://eco-track-server-jade.vercel.app/api/user-challenges/${user.email}`)
     // আপাতত স্যাম্পল ডাটা দিচ্ছি
     setActiveChallenges([
       { id: 1, title: "Plastic-Free July", progress: 75, icon: <Target />, color: "from-green-500 to-emerald-400" },

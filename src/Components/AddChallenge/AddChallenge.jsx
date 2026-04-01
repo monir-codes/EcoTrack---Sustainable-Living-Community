@@ -31,7 +31,7 @@ const AddChallenge = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/api/challenges', {
+      const response = await fetch('https://eco-track-server-jade.vercel.app/api/challenges', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newChallenge),
