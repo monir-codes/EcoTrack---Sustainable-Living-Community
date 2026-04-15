@@ -11,7 +11,7 @@ const ActiveChallenges = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:3000/api/active-challenges")
+    fetch("https://ecotrack-server-snowy.vercel.app/api/challenges")
       .then(res => res.json())
       .then(data => {
         setChallenges(data);

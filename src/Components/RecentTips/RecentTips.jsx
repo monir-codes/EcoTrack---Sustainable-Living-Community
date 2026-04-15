@@ -28,7 +28,7 @@ const RecentTips = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:3000/api/tips")
+    fetch("https://ecotrack-server-snowy.vercel.app/api/tips")
       .then((res) => res.json())
       .then((data) => {
         setCommunityTips(data);

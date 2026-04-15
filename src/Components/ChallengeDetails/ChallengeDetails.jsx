@@ -22,7 +22,7 @@ const ChallengeDetails = () => {
       try {
         setLoading(true);
         // সরাসরি নির্দিষ্ট চ্যালেঞ্জ ফেচ করুন যদি আপনার ব্যাকএন্ডে GET /api/challenges/:id থাকে
-        const res = await fetch("https://eco-track-server-jade.vercel.app/api/challenges");
+        const res = await fetch("https://ecotrack-server-snowy.vercel.app/api/challenges");
         const data = await res.json();
         const found = data.find((item) => item._id === id);
         
@@ -37,43 +37,40 @@ const ChallengeDetails = () => {
   }, [id]);
 
   // জয়েন করার হ্যান্ডলার
-  const handleJoin = async () => {
-    if (!user) {
-      return toast.error("Please login to join the challenge!", {
-        style: { background: '#1d2327', color: '#fff' }
-      });
+const handleJoin = async () => {
+  if (!user) {
+    return toast.error("Please login to join!");
+  }
+
+  setJoining(true);
+  try {
+    const response = await fetch(`https://ecotrack-server-snowy.vercel.app/api/challenges/join/${id}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        userId: user?.email, // ব্যাকএন্ড এই নামগুলো এক্সপেক্ট করছে
+        userEmail: user?.email 
+      })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      toast.success("Challenge Accepted!");
+      setChallenge(prev => ({
+        ...prev,
+        participants: (prev.participants || 0) + 1,
+        participantEmails: [...(prev.participantEmails || []), user.email]
+      }));
+    } else {
+      toast.error(data.message || "Join failed");
     }
-
-    setJoining(true);
-    try {
-      const response = await fetch(`https://eco-track-server-jade.vercel.app/api/challenges/join/${id}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: user.email })
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        toast.success("Challenge Accepted! Good luck, Warrior.", {
-          icon: '🌿',
-          style: { background: '#1d2327', color: '#fff' }
-        });
-        // লোকাল স্টেট আপডেট করুন যাতে রিলোড ছাড়াই সংখ্যা বাড়ে
-        setChallenge({
-          ...challenge,
-          participants: challenge.participants + 1,
-          participantEmails: [...(challenge.participantEmails || []), user.email]
-        });
-      } else {
-        toast.error(data.message || "Something went wrong");
-      }
-    } catch (error) {
-      toast.error("Server connection failed");
-    } finally {
-      setJoining(false);
-    }
-  };
+  } catch (error) {
+    toast.error("Server connection failed");
+  } finally {
+    setJoining(false);
+  }
+};
 
   if (loading) return <Loader />;
   if (!challenge) return <NotFound />;
