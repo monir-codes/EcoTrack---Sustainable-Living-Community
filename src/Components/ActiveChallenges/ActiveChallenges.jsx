@@ -72,7 +72,8 @@ const ActiveChallenges = () => {
       {/* Grid Layout - Optimized for all screens */}
       <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
         {challenges.map((item, index) => (
-          <motion.div 
+          <Link to={`/challenges/${item._id}`} key={index}>
+                      <motion.div 
             key={item._id} 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +85,7 @@ const ActiveChallenges = () => {
             {/* Image Overlay with Progress */}
             <div className="h-28 rounded-2xl mb-4 overflow-hidden relative">
               <img 
-                src={item.image} 
+                src={item.imageUrl} 
                 alt={item.title} 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100 opacity-40 group-hover:opacity-100"
               />
@@ -92,8 +93,16 @@ const ActiveChallenges = () => {
               
               {/* Status Badge */}
               <div className="absolute top-2 right-2 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 flex items-center gap-1.5">
-                {getStatusIcon(item.status)}
-                <span className="text-[8px] font-black uppercase tracking-tighter text-gray-300">{item.status}</span>
+                {getStatusIcon(item.startDate && item.endDate ?
+                  new Date() > new Date(item.endDate) ? "Finished" :
+                  new Date() >= new Date(item.startDate) ? "Ongoing" : "Upcoming"
+                : "Unknown")}
+                <span className="text-[8px] font-black uppercase tracking-tighter text-gray-300">
+                  {item.startDate && item.endDate ?
+                    new Date() > new Date(item.endDate) ? "Finished" :
+                    new Date() >= new Date(item.startDate) ? "Ongoing" : "Upcoming"
+                  : "Unknown"}
+                </span>
               </div>
             </div>
 
@@ -130,6 +139,7 @@ const ActiveChallenges = () => {
               </div>
             </div>
           </motion.div>
+          </Link>
         ))}
       </div>
     </section>
