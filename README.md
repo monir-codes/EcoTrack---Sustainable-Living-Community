@@ -1,19 +1,56 @@
-# 🌱 EcoTrack - Sustainable Living
+# 🌱 EcoTrack - Sustainable Living Community Platform
 
-**EcoTrack** is a modern MERN stack platform for tracking eco-friendly habits and environmental impact.
-
-### 🚀 [Live Site](https://ecotrack-monir.netlify.app/) | [Source Code](https://github.com/monir-codes/EcoTrack---Sustainable-Living-Community.git)
+> A full-stack MERN application that promotes sustainable living through eco-activity tracking and community engagement.
 
 ---
 
-### ✨ Features
-* **Eco-Challenges:** Join and track real-time green missions.
-* **Bento Dashboard:** High-end UI for Impact Scores and Global Ranking.
-* **Dynamic Progress:** Real-time carbon saving and point tracking.
-* **Community Hub:** Daily tips and events fetched from MongoDB.
-* **Fully Responsive:** Optimized for both mobile and desktop.
+## 🔗 Live Demo
+https://ecotrack-monir.vercel.app/
 
-### 🛠️ Tech Stack
-**React.js, Tailwind CSS, Node.js, Express.js, MongoDB, Firebase.**
+## 💻 GitHub
+https://github.com/monir-codes/EcoTrack---Sustainable-Living-Community
 
 ---
+
+## 📌 Overview
+EcoTrack is a community-based platform where users can track eco-friendly activities, share progress, and participate in sustainability challenges.
+
+---
+
+## ⚙️ Tech Stack
+- React.js
+- Tailwind CSS
+- Node.js
+- Express.js
+- MongoDB
+- Firebase Authentication
+
+---
+
+## ✨ Features
+- User authentication system
+- Eco activity tracking
+- Community engagement system
+- Dashboard analytics
+- Responsive UI
+- Smooth animations
+
+---
+
+## 📦 Dependencies
+- axios
+- firebase
+- express
+- mongoose
+- cors
+- dotenv
+
+---
+
+## 🚀 Installation
+
+```bash
+git clone https://github.com/monir-codes/EcoTrack---Sustainable-Living-Community.git
+cd EcoTrack
+npm install
+npm run dev
