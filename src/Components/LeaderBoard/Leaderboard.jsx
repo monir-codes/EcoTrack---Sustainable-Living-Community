@@ -26,7 +26,7 @@ const Leaderboard = () => {
             <Trophy className="text-green-500" size={28} />
           </motion.div>
           <h1 className="text-3xl md:text-6xl font-black uppercase italic tracking-tighter mb-2">
-            Eco <span className="text-green-500">Champions</span>
+            Verda <span className="text-green-500">Champions</span>
           </h1>
           <p className="text-gray-500 font-bold uppercase text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em]">Global Leaderboard</p>
         </div>
@@ -185,7 +185,7 @@ const PodiumCard = ({ user, height, color, delay, icon, isLarge = false }) => (
       <div className={`text-2xl font-black italic tracking-tighter ${color}`}>
         <CountUp end={user.points} duration={2.5} separator="," />
       </div>
-      <p className="text-[9px] text-gray-500 font-black uppercase tracking-[0.2em] mt-1">Eco Points</p>
+      <p className="text-[9px] text-gray-500 font-black uppercase tracking-[0.2em] mt-1">Verda Points</p>
     </div>
   </motion.div>
 );

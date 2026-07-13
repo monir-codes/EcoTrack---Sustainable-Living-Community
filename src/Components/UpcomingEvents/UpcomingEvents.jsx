@@ -12,7 +12,7 @@ const UpcomingEvents = () => {
       description: "Join neighborhood clean-up event to protect marine life from plastic pollution.",
       date: "2026-10-24T09:00:00Z",
       location: "Patenga Beach, CTG",
-      organizer: "admin@eco.com",
+      organizer: "admin@verda.com",
       maxParticipants: 100,
       currentParticipants: 65,
       image: "https://picsum.photos/id/20/600/400"

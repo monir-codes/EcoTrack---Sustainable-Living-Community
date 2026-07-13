@@ -138,7 +138,7 @@ const handleJoin = async () => {
                 <Info size={24} /> Participation Guidelines
               </h3>
               <div className="grid sm:grid-cols-2 gap-6">
-                {["Sign in to VerdaTrack", "Commit to Rules", "Weekly Submission", "Earn Eco-Badge"].map((step, index) => (
+                {["Sign in to VerdaTrack", "Commit to Rules", "Weekly Submission", "Earn Verda-Badge"].map((step, index) => (
                   <div key={index} className="flex items-start gap-4 text-gray-400 p-2">
                     <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 text-green-500 flex items-center justify-center text-xs font-black border border-white/10">0{index + 1}</div>
                     <p className="text-xs md:text-sm font-medium">{step}</p>
@@ -158,7 +158,7 @@ const handleJoin = async () => {
                    ))}
                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-[#1d2327] bg-green-500 flex items-center justify-center text-[10px] font-black text-black">+{challenge.participants}</div>
                 </div>
-                <p className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] mb-8">Eco-Warriors Joined</p>
+                <p className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] mb-8">Verda-Warriors Joined</p>
                 
                 <motion.button 
                   onClick={handleJoin}

@@ -85,7 +85,7 @@ const Profile = () => {
 
               <div className="flex-grow text-center sm:text-left space-y-4 w-full">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-500/10 rounded-full border border-green-500/20 text-green-500 text-[10px] font-black uppercase tracking-widest">
-                  <ShieldCheck size={12} /> Elite Eco-Guardian
+                  <ShieldCheck size={12} /> Elite Verda-Guardian
                 </div>
 
                 {isEditing ? (
@@ -115,7 +115,7 @@ const Profile = () => {
                   </div>
                 ) : (
                   <h1 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-white">
-                    {user?.displayName || "Eco Warrior"}
+                    {user?.displayName || "Verda Warrior"}
                   </h1>
                 )}
 

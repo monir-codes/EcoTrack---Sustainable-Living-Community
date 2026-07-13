@@ -69,7 +69,7 @@ const LoginPage = () => {
             Login to <span className="text-green-500">VerdaTrack</span>
           </h2>
           <p className="mt-2 text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">
-            Welcome back, Eco Warrior!
+            Welcome back, Verda Warrior!
           </p>
         </div>
 

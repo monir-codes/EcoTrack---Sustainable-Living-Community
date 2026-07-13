@@ -21,7 +21,7 @@ const MyActivities = () => {
       date: "Oct 24, 2026",
       location: "Patenga Beach",
       status: "Completed",
-      impact: "+50 Eco Points",
+      impact: "+50 Verda Points",
     },
     {
       id: 2,
@@ -37,7 +37,7 @@ const MyActivities = () => {
       date: "Nov 15, 2026",
       location: "Community Center",
       status: "Ongoing",
-      impact: "+20 Eco Points",
+      impact: "+20 Verda Points",
     },
   ];
 

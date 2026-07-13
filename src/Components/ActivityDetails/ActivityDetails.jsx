@@ -181,7 +181,7 @@ const ActivityDetails = () => {
             <StatCard
               icon={<Award className="text-yellow-500" size={18} />}
               label="Rank"
-              value="Eco Hero"
+              value="Verda Hero"
               isString
             />
           </div>

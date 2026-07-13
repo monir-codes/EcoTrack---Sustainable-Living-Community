@@ -20,7 +20,7 @@ const NotFound = () => {
       
       <div className="relative z-10 space-y-4">
         <h2 className="text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter">
-          Lost in the <span className="text-green-500">Eco-System?</span>
+          Lost in the <span className="text-green-500">Verda-System?</span>
         </h2>
         <p className="text-gray-500 font-bold uppercase text-xs tracking-[0.3em] max-w-md mx-auto leading-loose">
           The page you are looking for has been recycled or moved to a sustainable location.

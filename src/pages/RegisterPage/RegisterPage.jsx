@@ -54,7 +54,7 @@ const RegisterPage = () => {
         await updateUserProfile(formData.name, formData.photoURL);
       }
 
-      toast.success('Account created! Welcome Eco-Warrior.');
+      toast.success('Account created! Welcome Verda-Warrior.');
       navigate(from, { replace: true });
       
     } catch (err) {

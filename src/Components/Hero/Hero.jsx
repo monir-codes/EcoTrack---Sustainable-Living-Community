@@ -29,7 +29,7 @@ const heroSlides = [
     description:
       "Take on daily challenges to significantly cut your carbon emissions and foster a greener planet.",
     cta: "START REDUCING",
-    cardTitle: "Eco Warriors",
+    cardTitle: "Verda Warriors",
     cardSubtitle: "Protecting Our Planet",
   },
   {
@@ -102,7 +102,7 @@ const Hero = () => {
                       </div>
                       <div className="text-right">
                         <p className="text-green-500 font-black text-xl italic tracking-widest">
-                          ECO-TRACK
+                          VERDA-TRACK
                         </p>
                         <p className="text-gray-500 text-[10px] uppercase">
                           Sustainability Certified

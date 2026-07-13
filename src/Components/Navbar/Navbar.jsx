@@ -105,7 +105,7 @@ const Navbar = () => {
                   >
                     <li className="px-3 py-3 border-b border-white/5 mb-2 bg-black/20 rounded-2xl">
                       <p className="font-black text-white text-sm uppercase italic tracking-tighter">
-                        {user?.displayName || "Eco Warrior"}
+                        {user?.displayName || "Verda Warrior"}
                       </p>
                       <p className="text-[10px] text-gray-500 truncate mt-0.5">
                         {user?.email}
@@ -179,7 +179,7 @@ const Navbar = () => {
                   <ProfileImage size={32} />
                 </div>
                 <div className="overflow-hidden">
-                  <p className="text-white font-black italic uppercase text-sm truncate">{user?.displayName || "Eco Warrior"}</p>
+                  <p className="text-white font-black italic uppercase text-sm truncate">{user?.displayName || "Verda Warrior"}</p>
                   <p className="text-gray-500 text-[10px] truncate">{user?.email}</p>
                 </div>
               </div>

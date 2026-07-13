@@ -27,7 +27,7 @@ const StaticInfo = () => {
   const steps = [
     { 
       title: "Join a Challenge", 
-      desc: "Pick a goal that fits your lifestyle from our diverse range of eco-challenges.",
+      desc: "Pick a goal that fits your lifestyle from our diverse range of verda-challenges.",
       icon: <MousePointer2 size={20} /> 
     },
     { 

@@ -64,7 +64,7 @@ const AddChallenge = () => {
             Create New <span className="text-green-500">Challenge</span>
           </h2>
           <p className="text-gray-500 font-bold uppercase text-[10px] tracking-[0.3em] mt-2">
-            Set a new goal for the Eco-Warriors
+            Set a new goal for the Verda-Warriors
           </p>
         </div>
 
