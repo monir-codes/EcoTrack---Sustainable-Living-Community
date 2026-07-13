@@ -54,7 +54,7 @@ const Navbar = () => {
               <Leaf size={24} className="text-black" />
             </motion.div>
             <span className="text-2xl font-bold tracking-tight text-white">
-              Green<span className="text-green-500">Steps</span>
+              Verda<span className="text-green-500">Track</span>
             </span>
           </Link>
 

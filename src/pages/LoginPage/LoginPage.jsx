@@ -66,7 +66,7 @@ const LoginPage = () => {
         <div className="text-center relative z-10">
           {/* Title: Login to EcoTrack */}
           <h2 className="text-3xl font-black text-white uppercase italic tracking-tighter">
-            Login to <span className="text-green-500">GreenSteps</span>
+            Login to <span className="text-green-500">VerdaTrack</span>
           </h2>
           <p className="mt-2 text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">
             Welcome back, Eco Warrior!

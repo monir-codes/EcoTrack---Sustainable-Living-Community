@@ -1,4 +1,4 @@
-# 🌱 GreenSteps - Sustainable Living Community Platform
+# 🌱 VerdaTrack - Sustainable Living Community Platform
 
 > A full-stack MERN application that promotes sustainable living through eco-activity tracking and community engagement.
 
@@ -13,7 +13,7 @@ https://github.com/monir-codes/EcoTrack---Sustainable-Living-Community
 ---
 
 ## 📌 Overview
-GreenSteps is a community-based platform where users can track eco-friendly activities, share progress, and participate in sustainability challenges.
+VerdaTrack is a community-based platform where users can track eco-friendly activities, share progress, and participate in sustainability challenges.
 
 ---
 
@@ -51,6 +51,6 @@ GreenSteps is a community-based platform where users can track eco-friendly acti
 
 ```bash
 git clone https://github.com/monir-codes/EcoTrack---Sustainable-Living-Community.git
-cd GreenSteps
+cd VerdaTrack
 npm install
 npm run dev

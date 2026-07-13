@@ -86,7 +86,7 @@ const RegisterPage = () => {
 
         <div className="text-center">
           <h2 className="text-4xl font-black text-white uppercase italic tracking-tighter leading-none">
-            Join <span className="text-green-500">GreenSteps</span>
+            Join <span className="text-green-500">VerdaTrack</span>
           </h2>
           <p className="mt-3 text-[10px] text-gray-500 font-bold uppercase tracking-[0.3em]">
             Step into a sustainable future

@@ -38,7 +38,7 @@ const NotFound = () => {
       {/* Branding */}
       <div className="mt-20 flex items-center gap-2 opacity-20">
         <Leaf size={20} className="text-green-500" />
-        <span className="font-bold text-white uppercase tracking-tighter">GreenSteps</span>
+        <span className="font-bold text-white uppercase tracking-tighter">VerdaTrack</span>
       </div>
     </div>
   );

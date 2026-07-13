@@ -50,14 +50,14 @@ const Footer = () => {
               <div className="p-2 bg-white/5 rounded-lg group-hover:bg-green-500 transition-colors">
                 <Mail size={18} className="group-hover:text-black" />
               </div>
-              <span className="group-hover:text-green-400">support@greensteps.com</span>
+              <span className="group-hover:text-green-400">support@verdatrack.com</span>
             </div>
           </div>
         </div>
 
         <div className="border-t border-white/5 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm italic">
-            © 2025 <span className="text-white font-bold">GreenSteps</span>. All rights reserved.
+            © 2025 <span className="text-white font-bold">VerdaTrack</span>. All rights reserved.
           </p>
           <div className="text-gray-500 text-[10px] tracking-widest uppercase flex gap-4">
             <span>Privacy Policy</span>
