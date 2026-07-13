@@ -12,6 +12,7 @@ import {
 import { RxAvatar } from "react-icons/rx";
 import { AuthContext } from "../../Auth/AuthContext/AuthContext";
 import { Link, NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,11 +45,16 @@ const Navbar = () => {
           
           {/* Logo Section */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="bg-green-500 p-1.5 rounded-lg group-hover:rotate-12 transition-transform">
+            <motion.div 
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              className="bg-green-500 p-1.5 rounded-lg group-hover:rotate-12 transition-transform"
+            >
               <Leaf size={24} className="text-black" />
-            </div>
+            </motion.div>
             <span className="text-2xl font-bold tracking-tight text-white">
-              Eco<span className="text-green-500">Track</span>
+              Green<span className="text-green-500">Steps</span>
             </span>
           </Link>
 

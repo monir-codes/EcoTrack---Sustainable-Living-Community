@@ -138,7 +138,7 @@ const handleJoin = async () => {
                 <Info size={24} /> Participation Guidelines
               </h3>
               <div className="grid sm:grid-cols-2 gap-6">
-                {["Sign in to EcoTrack", "Commit to Rules", "Weekly Submission", "Earn Eco-Badge"].map((step, index) => (
+                {["Sign in to GreenSteps", "Commit to Rules", "Weekly Submission", "Earn Eco-Badge"].map((step, index) => (
                   <div key={index} className="flex items-start gap-4 text-gray-400 p-2">
                     <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 text-green-500 flex items-center justify-center text-xs font-black border border-white/10">0{index + 1}</div>
                     <p className="text-xs md:text-sm font-medium">{step}</p>
@@ -179,7 +179,7 @@ const handleJoin = async () => {
 
             <motion.div variants={fadeInUp} className="bg-[#1d2327] border border-white/5 p-8 rounded-[3rem] space-y-6">
               <MetaRow icon={<Calendar size={20}/>} label="Timeline" value={`${challenge.startDate} — ${challenge.endDate}`} />
-              <MetaRow icon={<ShieldCheck size={20}/>} label="Verified Program" value="EcoTrack Official" italic />
+              <MetaRow icon={<ShieldCheck size={20}/>} label="Verified Program" value="GreenSteps Official" italic />
             </motion.div>
           </div>
 

@@ -1,4 +1,4 @@
-# 🌱 EcoTrack - Sustainable Living Community Platform
+# 🌱 GreenSteps - Sustainable Living Community Platform
 
 > A full-stack MERN application that promotes sustainable living through eco-activity tracking and community engagement.
 
@@ -13,7 +13,7 @@ https://github.com/monir-codes/EcoTrack---Sustainable-Living-Community
 ---
 
 ## 📌 Overview
-EcoTrack is a community-based platform where users can track eco-friendly activities, share progress, and participate in sustainability challenges.
+GreenSteps is a community-based platform where users can track eco-friendly activities, share progress, and participate in sustainability challenges.
 
 ---
 
@@ -51,6 +51,6 @@ EcoTrack is a community-based platform where users can track eco-friendly activi
 
 ```bash
 git clone https://github.com/monir-codes/EcoTrack---Sustainable-Living-Community.git
-cd EcoTrack
+cd GreenSteps
 npm install
 npm run dev
