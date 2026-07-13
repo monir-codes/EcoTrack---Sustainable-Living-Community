@@ -14,7 +14,7 @@ const Footer = () => {
               <div className="bg-green-500 p-1.5 rounded-lg">
                 <Leaf size={22} className="text-black" />
               </div>
-              <span className="text-white">Eco<span className="text-green-500">Track</span></span>
+              <span className="text-white">Verda<span className="text-green-500">Track</span></span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Empowering communities to live sustainably by tracking impact and sharing green tips.

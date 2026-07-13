@@ -39,7 +39,7 @@ const Loader = () => {
         className="mt-12 flex flex-col items-center"
       >
         <span className="text-[10px] font-black uppercase tracking-[0.6em] text-green-500 animate-pulse">
-          Eco System Loading
+          Verda System Loading
         </span>
         <div className="mt-3 h-[2px] w-32 bg-white/5 rounded-full overflow-hidden">
           <motion.div
